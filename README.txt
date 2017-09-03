@@ -1,0 +1,1 @@
+This repository will serve for the uploading of CS 162 projects/homework assigninments.
