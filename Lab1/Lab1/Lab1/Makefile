@@ -20,5 +20,5 @@ ${OBJS}: ${SRCS}
 
 
 clean:
-	rm {OBJS}
+	rm ${OBJS}
 
