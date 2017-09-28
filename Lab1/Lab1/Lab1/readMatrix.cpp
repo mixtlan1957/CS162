@@ -11,7 +11,6 @@
 int getInt(int *ptr);
 
 void readMatrix(int ***arrIn, int sizeIn) {
-	int userVal = 0;
 	int status = -1;
 	int choice;
 

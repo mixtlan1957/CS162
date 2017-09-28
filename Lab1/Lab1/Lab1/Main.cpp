@@ -19,7 +19,7 @@ int getInt(int *ptr)
 	if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
 		std::cout << "No data read." << std::endl;
 	}
-	else if (sscanf_s(buffer, "%i", ptr) != 1) {
+	else if (sscanf(buffer, "%i", ptr) != 1) {
 		std::cout << "Integer not entered. ";
 	}
 	else {
