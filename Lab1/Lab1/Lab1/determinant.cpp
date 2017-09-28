@@ -1,8 +1,10 @@
 /*********************************************************************
-** Program name: Lab1
+** Program name: Lab1 (Matrix Determinant Calculator)
 ** Author: Mario Franco-Munoz
 ** Date: 09/27/2017
-** Description:
+** Description: This file contains the determinant function takes a pointer to a (prepopulated) 2D array and the size
+**	of that array (as a single digit where 2 denotes a 2x2 array and 3 denotes a 3x3 array). The function then
+**	calculates the determinant and returns it.
 *********************************************************************/
 
 #include "determinant.hpp"
