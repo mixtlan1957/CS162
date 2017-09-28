@@ -20,4 +20,4 @@ ${OBJS}: ${SRCS}
 
 
 clean:
-	rm*.o output
+	rm ${OBSJ}
