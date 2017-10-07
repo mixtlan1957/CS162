@@ -56,7 +56,7 @@ int main() {
 	}
 
 	//call readMatrix - will prompt the user to enter 4 or 9 integers to fill the matrix
-	readMatrix(&arr, choice);
+	readMatrix(arr, choice);
 
 	//call determinant and display
 	if (choice == 2) {
@@ -65,7 +65,7 @@ int main() {
 	else if (choice == 3) {
 		std::cout << "You have entered a 3x3 matrix.\n The determinant is: ";
 	}
-	std::cout << determinant(&arr, choice) << std::endl;
+	std::cout << determinant(arr, choice) << std::endl;
 
 	//free dynamically allocated memory
 	for (int i = 0; i < choice; i++) {

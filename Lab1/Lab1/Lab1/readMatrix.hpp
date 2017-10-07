@@ -15,7 +15,7 @@
 #define READMATRIX_HPP
 
 //function prototype for readMatrix function
-void readMatrix(int ***, int);
+void readMatrix(int **, int);
 
 
 #endif

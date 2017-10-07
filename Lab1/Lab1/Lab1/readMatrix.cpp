@@ -12,7 +12,7 @@
 
 int getInt(int *ptr);
 
-void readMatrix(int ***arrIn, int sizeIn) {
+void readMatrix(int **arrIn, int sizeIn) {
 	int status = -1;
 	int choice;
 
@@ -24,7 +24,7 @@ void readMatrix(int ***arrIn, int sizeIn) {
 			while ((status = getInt(&choice) != 0)) {
 				std::cout << "Please enter a valid integer!" << std::endl;
 			}
-			(*arrIn)[i][k] = choice;
+			(arrIn)[i][k] = choice;
 		}
 	}
 
