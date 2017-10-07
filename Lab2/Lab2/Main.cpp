@@ -19,7 +19,6 @@ int main() {
 	int alphabetArr[26];
 	std::ofstream ofs;
 	int pcount = 0;			//paragraph counter
-	long offset = 0;
 
 
 	//initialize array to prevent odd errors from occuring.
