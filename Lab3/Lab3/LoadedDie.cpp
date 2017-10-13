@@ -19,50 +19,30 @@ LoadedDie::LoadedDie(const int &numberSides) :Die(numberSides) {
 }
 
 /*********************************************************************
-** Description: Loaded die version of random generator. SPecifially, the outcome of a "normal"roll has a coefficient added to it.
+** Description: Loaded die version of random generator. Specifially, the outcome of a "normal"roll has a coefficient added to it.
 ** If the outcome of this augmented roll is more than the maximum number of faces of a die, the outcome is returned as the
 ** maximum number of faces of the die instead.
 *********************************************************************/
 int LoadedDie::loadedRoll(int player, int currentRnd) {
-	int weight_factor = 5;
+	int weight_factor = 4;
 	int weighedRoll;
+	int normalRoll;
 	
+
 	unsigned seed;
+	//ensure that the result beats a typical "normal" die result but ensure that a die roll of 1 is still possible
+	//as per instructors note that I noticed just in time before turning in this assignment. 
 
-	//ensure that the result for player 1 and player 2 are different in case the executiong time is too fast
-	//for the seed to be different
-	if (player == 1) {
-		if (currentRnd % 2 == 0) {
-			seed = time(0) / 7 + currentRnd;
-			srand(seed);
-		}
-		else {
-			seed = time(0) * 7 + currentRnd;
-			srand(seed);
-		}
 
-		weighedRoll = (rand() % (numberSides - 1 + 1)) + 1;
-		weighedRoll += (weighedRoll / weight_factor);
+	normalRoll = rollTheDie(player, currentRnd);
 
-		if (weighedRoll > numberSides) {   
-			weighedRoll = numberSides;		
-			return weighedRoll;
-		}
-		else {
-			return weighedRoll;
-		}
-
+	//if roll is 1 don't change the outcome.
+	if (normalRoll == 1) {
+		weighedRoll = 1;
+		return weighedRoll;
 	}
-	else { //second block is to ensure that the seed is different for each player.
-		if (currentRnd % 2 == 0) {
-			seed = time(0) * 3 + currentRnd;
-			srand(seed);
-		}
-		else {
-			seed = time(0) / 3 + currentRnd;
-			srand(seed);
-		}
-		
+	//make the loaded die have a better chance at winning every other round
+	else if (currentRnd % 2 == 1) {
 		weighedRoll = (rand() % (numberSides - 1 + 1)) + 1;
 		weighedRoll += (weighedRoll / weight_factor);
 
@@ -73,5 +53,9 @@ int LoadedDie::loadedRoll(int player, int currentRnd) {
 		else {
 			return weighedRoll;
 		}
+	}
+	else {
+		weighedRoll = normalRoll;
+		return weighedRoll;
 	}
 }
