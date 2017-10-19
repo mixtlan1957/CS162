@@ -33,7 +33,6 @@ void Zoo::gameInit() {
 	float choice;
 	int status;
 	int errorCounter = 0;
-	int userDefCost = 0;
 	std::string strTest;
 
 	//introduction
@@ -82,9 +81,10 @@ void Zoo::gameInit() {
 			std::cout << "Enter the number of TIGERS you wish to purchase: (enter 1 or 2): " << std::endl;
 			errorCounter++;
 		} while (((status = getInt(&choice)) != 0) || choice > 2 || choice < 1);
+		tigerCount = static_cast<int>(choice);
 		for (int i = 0; i < choice; i++) {
 			tigerPen[i] = new Tiger;
-			tigerCount++;
+			tigerPen[i]->setAge(1);
 			acctBalance -= tigerPen[i]->getCost();
 		}
 
@@ -97,9 +97,10 @@ void Zoo::gameInit() {
 			std::cout << "Enter the number of PENGUINS you wish to purchase: (enter 1 or 2): " << std::endl;
 			errorCounter++;
 		} while (((status = getInt(&choice)) != 0) || choice > 2 || choice < 1);
+		penguinCount = static_cast<int>(choice);
 		for (int i = 0; i < choice; i++) {
 			penguinPen[i] = new Penguin;
-			penguinCount++;
+			penguinPen[i]->setAge(1);
 			acctBalance -= penguinPen[i]->getCost();
 		}
 
@@ -113,9 +114,11 @@ void Zoo::gameInit() {
 			std::cout << "Enter the number of TURTLES you wish to purchase: (enter 1 or 2): " << std::endl;
 			errorCounter++;
 		} while (((status = getInt(&choice)) != 0) || choice > 2 || choice < 1);
+		//initial turtles selection
+		turtleCount = static_cast<int>(choice);
 		for (int i = 0; i < choice; i++) {
 			turtlePen[i] = new Turtle;
-			turtleCount++;
+			turtlePen[i]->setAge(1);
 			acctBalance -= turtlePen[i]->getCost();
 		}
 
@@ -311,7 +314,7 @@ void Zoo::expandPen(int prev, int type) {
 			//fill in what space is available in current cage
 			for (int i = prev; i < tigerPenSize; i++) {   //this here was the source of many problems this tiny forloop here.
 				tigerPen[i] = new Tiger; //don't forget the pain it caused you. You cannot access elements in an array of pointers			
-				tigerPen[i]->setAge(0); //that have nothing in them. Silly, silly, silly... SILLY!
+				tigerPen[i]->setAge(0); //that have nothing in them.
 			}
 			
 			prevPenSize = tigerPenSize;
@@ -550,6 +553,7 @@ void Zoo::gameLoop() {
 	float choice;
 	int errorCounter = 0;
 	
+	gameInit();
 	do {
 		roundCounter++;   //this is were the round counter lives
 		std::cout << "\n" << std::endl;
@@ -620,15 +624,24 @@ void Zoo::startOfDay() {
 	int foodCosts;
 
 	//increment the age of all animals by one day
-	for (int i = 0; i < tigerCount; i++) {
-		tigerPen[i]->incrementAge();
+	if (tigerCount > 0) {
+		for (int i = 0; i < tigerCount; i++) {
+			tigerPen[i]->incrementAge();
+		}
 	}
-	for (int i = 0; i < penguinCount; i++) {
-		penguinPen[i]->incrementAge();
+	
+	if (penguinCount > 0) {
+		for (int i = 0; i < penguinCount; i++) {
+			penguinPen[i]->incrementAge();
+		}
 	}
-	for (int i = 0; i < turtleCount; i++) {
-		turtlePen[i]->incrementAge();
+	
+	if (turtleCount > 0) {
+		for (int i = 0; i < turtleCount; i++) {
+			turtlePen[i]->incrementAge();
+		}
 	}
+	
 
 	//substract feed cost
 	if (tigerCount > 0) {

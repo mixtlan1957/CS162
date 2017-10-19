@@ -11,7 +11,6 @@
 int main() {
 	Zoo instance;
 
-	instance.gameInit();
 	instance.gameLoop();
 
 
