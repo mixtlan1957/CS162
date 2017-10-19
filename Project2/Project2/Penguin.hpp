@@ -24,6 +24,10 @@ public:
 	//move operator
 	Penguin& operator=(const Penguin &RHS);
 
+	virtual ~Penguin() {
+		
+	}
+
 
 };
 #endif

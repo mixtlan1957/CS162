@@ -32,6 +32,11 @@ public:
 	void incrementAge();
 	void setAge(int);
 
+	virtual ~Animal() {
+
+	}
+
+
 
 };
 #endif

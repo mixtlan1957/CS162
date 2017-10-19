@@ -16,6 +16,13 @@ Zoo::Zoo() {
 	tigerPen = new Tiger*[START_CAP];
 	penguinPen = new Penguin*[START_CAP];
 	turtlePen = new Turtle*[START_CAP];
+
+	for (int i = 0; i < START_CAP; i++) {
+		tigerPen[i] = nullptr;
+		penguinPen[i] = nullptr;
+		turtlePen[i] = nullptr;
+	}
+
 	roundCounter = 0;
 }
 

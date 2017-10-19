@@ -24,5 +24,10 @@ public:
 
 	Turtle& operator=(Turtle &RHS);
 
+	virtual ~Turtle(){
+		
+	}
+
+
 };
 #endif

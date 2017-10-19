@@ -24,6 +24,11 @@ public:
 	//assignment operator
 	Tiger& operator=(const Tiger &RHS);
 
+
+	virtual ~Tiger() {
+	
+	}
+
 };
 
 #endif 
