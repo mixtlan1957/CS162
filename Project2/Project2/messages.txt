@@ -1,0 +1,17 @@
+$DEATH_Oh no! One of your animals became deathly ill!!!
+$NO_DEATH_An animal was going to die... but there are no animals to kill!
+$D_TIGER1_One of your tigers has died.
+$D_PENGUIN1_One of your penguins has died.
+$D_TURTLE1_One of your cheap turtles has died.
+$D_USERANIMAL_
+$D_AGE1_Poor dude was only 
+$D_AGE2_ days old. RIP
+$BIRTH_It looks like there might be new baby animals!
+$B_TIGER_ tiger was born!
+$B_PENGUIN_ penguins were born!
+$B_TURTLE_ turtles were born!
+$B_ERROR_Just kidding, these animals are too young! You don't own any adult animals yet.
+$BONUS1_Wow Buisness is booming today!!!
+$BONUS2_Each of your tigers will earn you a bonus of $
+$BONUS_TOTAL_For a total bonus of $
+$DEFAULT_Just a normal day at the zoo. Nothing to see here.
