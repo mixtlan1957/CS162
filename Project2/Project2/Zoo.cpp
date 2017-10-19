@@ -1,12 +1,12 @@
-/*********************************************************************
+/**********************************************************************
 ** Program name: Project 3 (Zoo Tycoon)
 ** Author: Mario Franco-Munoz
 ** Date: 10/13/2017
 ** Description: Zoo class is the main working component of the virtual zoo game. First game is initialized with the gameInit
 ** function where user is prompted to enter how many animals to begin with the user will have. After which randEvent produces
 ** a random event: illness, birth of animals, bonus. After the random element phase, the user is provided a summary of the present
-** round and asks if they would like to play again.
-*********************************************************************/
+** round and asks if they would like to play again. 
+**********************************************************************/
 
 #include "Zoo.hpp"
 
