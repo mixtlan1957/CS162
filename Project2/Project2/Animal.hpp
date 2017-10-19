@@ -22,7 +22,7 @@ protected:
 
 public:
 	//default constructor
-	Animal::Animal();
+	Animal();
 
 	int getAge();
 	int getCost();
