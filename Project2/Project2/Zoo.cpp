@@ -302,9 +302,9 @@ void Zoo::expandPen(int prev, int type) {
 	if (type == 1) {
 		if (tigerCount > tigerPenSize) {
 			//fill in what space is available in current cage
-			for (int i = prev; i < tigerPenSize; i++) {
-				tigerPen[i] = new Tiger;
-				tigerPen[i]->setAge(0);
+			for (int i = prev; i < tigerPenSize; i++) {   //this here was the source of many problems this tiny forloop here.
+				tigerPen[i] = new Tiger; //don't forget the pain it caused you. You cannot access elements in an array of pointers			
+				tigerPen[i]->setAge(0); //that have nothing in them. Silly, silly, silly... SILLY!
 			}
 			
 			prevPenSize = tigerPenSize;
@@ -663,13 +663,15 @@ std::string Zoo::msgReader(std::string search) {
 		std::cout << "File could not be opened." << std::endl;
 	}
 	
-	
-	getline(nameFile, input);
-	while (nameFile) {
+	//the principle of this loop here is the very similar to the search function
+	//used in CS161: remember, in this case we do not want to change cases since
+	//tags can contain different characters other than letters.
+	getline(nameFile, input);		//this here is the sentence or line that we are looking through
+	while (nameFile) {				//search line by line
 
 		found = input.find(search);
-		if (found != std::string::npos) {
-			for (int i = offset; i < input.length(); i++) {
+		if (found != std::string::npos) {	//thanks to find() string member function we can locate the tag
+			for (int i = offset; i < input.length(); i++) {  //ignore the tag and input the statement we want
 				readMsg += input.at(i);
 			}
 			nameFile.close();

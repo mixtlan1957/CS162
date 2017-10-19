@@ -69,17 +69,17 @@ public:
 
 	//destructor
 	~Zoo() {
-		for (int i = 0; i < tigerPenSize; i++) {
+		for (int i = 0; i < tigerCount; i++) {
 			delete tigerPen[i];
 		}
 		delete[] tigerPen;
 
-		for (int i = 0; i < penguinPenSize; i++) {
+		for (int i = 0; i < penguinCount; i++) {
 			delete penguinPen[i];
 		}
 		delete[] penguinPen;
 		
-		for (int i = 0; i < turtlePenSize; i++) {
+		for (int i = 0; i < turtleCount; i++) {
 			delete turtlePen[i];
 		}
 		delete[] turtlePen;
