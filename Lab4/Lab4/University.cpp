@@ -143,7 +143,6 @@ void University::readData() {
 			Building **tempXfer = new Building*[bldRosterSize];
 			//first move prev contents
 			for (int i = 0; i < prev; i++) {
-				tempXfer[i] = new Building;
 				tempXfer[i] = bld_roster[i];
 			}
 			
@@ -477,7 +476,7 @@ void University::addStudents() {
 
 		//move prev contents
 		for (int i = 0; i < prev; i++) {
-			tempXfer[i] = new Student;
+			
 			tempXfer[i] = studentRoster[i];
 		}
 
@@ -514,7 +513,6 @@ void University::addInstructors() {
 
 		//move prev contents
 		for (int i = 0; i < prev; i++) {
-			tempXfer[i] = new Instructor;
 			tempXfer[i] = instRoster[i];
 		}
 
