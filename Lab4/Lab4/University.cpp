@@ -302,7 +302,7 @@ void University::simLoop() {
 	do {
 		menu();
 		errorCounter = 0;
-		if (exitBool = false) {
+		if (exitBool == false) {
 			do {
 				if (errorCounter > 1) {
 					//std::cout << "Invalid selection. Please enter a valid menu selection." << std::endl;
