@@ -51,6 +51,8 @@ private:
 	double acctBalance;
 	int roundCounter;
 
+	bool exitBool = false;
+
 
 public:
 	Zoo();

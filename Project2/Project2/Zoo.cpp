@@ -125,7 +125,7 @@ void Zoo::gameInit() {
 		break;
 	case 2:
 		std::cout << "Thank you for playing Virtual Zoo." << std::endl;
-		exit(0);
+		exitBool = true;
 		break;
 	default: std::cout << "FATAL ERROR" << std::endl;
 		exit(1);
@@ -324,8 +324,9 @@ void Zoo::expandPen(int prev, int type) {
 
 			//transfer previous pointers
 			for (int i = 0; i < prevPenSize; i++) {
-				temp[i] = new Tiger;
+				//temp[i] = new Tiger;
 				temp[i] = tigerPen[i];
+				delete tigerPen[i];
 			}
 
 			//set age of new babies to 0 days (this function treats new animals as babies by default)
@@ -335,16 +336,16 @@ void Zoo::expandPen(int prev, int type) {
 			}
 
 			//dealocate memory of prev address
-			for (int i = 0; i < prevPenSize; i++) {
-				delete tigerPen[i];
-			}
+			//for (int i = 0; i < prevPenSize; i++) {
+				//delete tigerPen[i];
+			//}
 			delete[] tigerPen;
 			tigerPen = nullptr;
 
 			//reasign array of pointers and pointers inside the array of pointers.
 			tigerPen = temp;
 			for (int i = 0; i < tigerPenSize; i++) {
-				tigerPen[i] = new Tiger;
+				//tigerPen[i] = new Tiger;
 				tigerPen[i] = temp[i];
 			}
 		}
@@ -372,7 +373,7 @@ void Zoo::expandPen(int prev, int type) {
 
 			//transfer previous pointers
 			for (int i = 0; i < prevPenSize; i++) {
-				temp[i] = new Penguin;
+				//temp[i] = new Penguin;
 				temp[i] = penguinPen[i];
 			}
 
@@ -383,16 +384,16 @@ void Zoo::expandPen(int prev, int type) {
 			}
 
 			//dealocate memory of prev address
-			for (int i = 0; i < prevPenSize; i++) {
-				delete penguinPen[i];
-			}
+			//for (int i = 0; i < prevPenSize; i++) {
+				//delete penguinPen[i];
+			//}
 			delete[] penguinPen;
 			penguinPen = nullptr;
 
 			//reasign pointer
 			penguinPen = temp;
 			for (int i = 0; i < penguinPenSize; i++) {
-				penguinPen[i] = new Penguin;
+				//penguinPen[i] = new Penguin;
 				penguinPen[i] = temp[i];
 			}
 		}
@@ -420,7 +421,7 @@ void Zoo::expandPen(int prev, int type) {
 
 			//copy previous pointers
 			for (int i = 0; i < prevPenSize; i++) {
-				temp[i] = new Turtle;
+				//temp[i] = new Turtle;
 				temp[i] = turtlePen[i];
 			}
 
@@ -431,16 +432,16 @@ void Zoo::expandPen(int prev, int type) {
 			}
 
 			//dealocate memory of prev address
-			for (int i = 0; i < prevPenSize; i++) {
-				delete turtlePen[i];
-			}
+			//for (int i = 0; i < prevPenSize; i++) {
+				//delete turtlePen[i];
+			//}
 			delete[] turtlePen;
 			turtlePen = nullptr;
 
 			//reasign pointer
 			turtlePen = temp;
 			for (int i = 0; i < turtlePenSize; i++) {
-				turtlePen[i] = new Turtle;
+				//turtlePen[i] = new Turtle;
 				turtlePen[i] = temp[i];
 			}
 		}
@@ -585,7 +586,7 @@ void Zoo::gameLoop() {
 				std::cout << "******Final game summary:******** " << std::endl;
 				gameSummary();
 				std::cout << "Thanks for playing Virtual Zoo." << std::endl;
-				exit(0);
+				exitBool = true;
 				break;
 			default: std::cout << "FATAL ERROR" << std::endl;
 				exit(1);
