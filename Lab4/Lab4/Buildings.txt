@@ -1,0 +1,4 @@
+Building1 $#NameAdams Hall$#Sqft11168$#Address2750 SW CAMPUS WAY, CORVALLIS, OR 97331$
+Building2 $#NameAustin Hall$#Sqft107613$#Address2751 SW JEFFERSON WAY, CORVALLIS, OR 97331$
+Building3 $#NameAvery House$#Sqft12964$#Address1030 SW MADISON AVE, CORVALLIS, OR 97331$
+Building4 $#NameBenton Hall$#Sqft25806$#Address1650 SW PIONEER PL, CORVALLIS, OR 97331$

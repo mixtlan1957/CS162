@@ -1,0 +1,10 @@
+$#NameCygnus, Warrior of the Ice Field$#Rating4.8$#Age30$
+$#NameGottfried Berlichingen$#Rating5.0$#Age39$
+$#NameKrampus$#Rating0.8$#Age30$
+$#Nameshaby$#Rating4.3$#Age23$
+$#NameDr. Strange$#Rating5$#Age45$
+$#NameSon Goku$#Rating3.2$#Age50$
+$#NameLaura$#Rating4.3$#Age32$
+$#NameT Monk$#Rating5$#Age53$
+$#NameSam Adams$#Rating2.3$#Age10$
+$#NameSe¤or Frog$#Rating4.8$#Age21$$#Nametest2$#Rating3.2$#Age34$

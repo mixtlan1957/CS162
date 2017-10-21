@@ -1,0 +1,38 @@
+/*********************************************************************
+** Program name: Lab4
+** Author: Mario Franco-Munoz
+** Date: 10/19/2017
+** Description:
+*********************************************************************/
+
+#include <string>
+
+
+#ifndef BUILDING_HPP
+#define BUILDING_HPP
+
+class Building {
+private:
+	std::string name;
+	int size;
+	std::string address;
+
+public:
+	Building();
+	Building(std::string, int, std::string);
+
+	void setName(std::string);
+	std::string getName();
+	void setSize(int);
+	int getSize();
+	void setAddress(std::string);
+	std::string getAddress();
+
+
+};
+
+#endif
+
+
+
+
