@@ -11,7 +11,7 @@
 int getFloat(float *ptr) {
 	float testFloat;
 	int testInt;
-	float precisionLimit = .01;
+	
 	int status = -1;
 	char buffer[4096];
 
@@ -24,7 +24,7 @@ int getFloat(float *ptr) {
 	}
 	else if (sscanf(buffer, "%f", ptr) == 1) {
 		testFloat = *ptr;
-		testFloat *= 10;
+		testFloat *= 10;			//precision limit set to .1 in this case
 		testInt = static_cast<int>(testFloat);
 		if (testFloat > testInt) {
 			std::cout << "Please enter a number with up to .1 precision." << std::endl;

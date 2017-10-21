@@ -46,7 +46,7 @@ private:
 	int bldRosterSize;
 	int bldCount;
 
-	bool exit = false;
+	bool exitBool;
 
 public:
 	University();

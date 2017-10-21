@@ -14,6 +14,8 @@ University::University() {
 	studentRoster = new Student*[ARR_STRT_SZ];
 	instRoster = new Instructor*[ARR_STRT_SZ];
 	bld_roster = new Building*[ARR_STRT_SZ];
+
+	exitBool = false;
 	
 	sRosterSize = ARR_STRT_SZ;
 	studentCount = 0;
@@ -241,7 +243,7 @@ void University::menu() {
 		workSelect();
 		break;
 	case 4:
-		exit = true;
+		exitBool = true;
 		break;
 	case 5:
 		writeData();
@@ -296,14 +298,14 @@ void University::simLoop() {
 	float choice = 0;
 	int status;
 	int errorCounter = 0;
-	
-	if (exit = false) {
-		do {
-			menu();
-			errorCounter = 0;
+
+	do {
+		menu();
+		errorCounter = 0;
+		if (exitBool = false) {
 			do {
 				if (errorCounter > 1) {
-					std::cout << "Invalid selection. Please enter a valid menu selection." << std::endl;
+					//std::cout << "Invalid selection. Please enter a valid menu selection." << std::endl;
 				}
 				std::cout << "Continue running program?" << std::endl;
 				std::cout << "Enter 1 to continue." << std::endl;
@@ -311,9 +313,8 @@ void University::simLoop() {
 
 				errorCounter++;
 			} while (((status = getInt(&choice)) != 0) || choice > 2 || choice < 1);
-
-		} while (choice == 1);
-	}
+		}
+	} while (choice == 1);
 }
 
 /*********************************************************************
