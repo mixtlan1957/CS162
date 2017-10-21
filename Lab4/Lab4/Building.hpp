@@ -2,7 +2,8 @@
 ** Program name: Lab4
 ** Author: Mario Franco-Munoz
 ** Date: 10/19/2017
-** Description:
+** Description: Header file for Building class. Building class represents buildings at the Oregon State University.
+** A building has an address, size in square ft and a name as data members. 
 *********************************************************************/
 
 #include <string>

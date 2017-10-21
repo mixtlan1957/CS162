@@ -20,7 +20,7 @@ Building::Building() {
 
 //initialized constructor
 Building::Building(std::string addressIn, int sizeIn, std::string nameIn) {
-	this->address;
+	this->address = addressIn;
 	this->name;
 	this->size;
 }

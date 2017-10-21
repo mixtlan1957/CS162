@@ -2,7 +2,9 @@
 ** Program name: Lab4
 ** Author: Mario Franco-Munoz
 ** Date: 10/19/2017
-** Description:
+** Description: Source file for University class. As part of "Oregon State University" sulation, this class
+** represents the university as a whole with instructors and buildings being part of the university.
+** Information about the different buildings, students and instructors is accessed through text files.
 *********************************************************************/
 
 #include "University.hpp"
@@ -239,7 +241,7 @@ void University::menu() {
 		workSelect();
 		break;
 	case 4:
-		exit(0);
+		exit = true;
 		break;
 	case 5:
 		writeData();
@@ -270,7 +272,7 @@ void University::workSelect() {
 		std::cout << i + 1 << ".   " << instRoster[i-studentCount]->getName() << std::endl;
 	}
 
-	
+	errorCounter = 0;
 	do {
 		std::cout << "Please enter the number that appears by the student or ";
 		std::cout <<"instructor that you wish to have do work." << std::endl;
@@ -294,25 +296,24 @@ void University::simLoop() {
 	float choice = 0;
 	int status;
 	int errorCounter = 0;
-	do {
-		menu();
-		do {
-			if (errorCounter > 1) {
-				std::cout << "Invalid selection. Please enter a valid menu selection." << std::endl;
-			}
-			std::cout << "Continue running program?" << std::endl;
-			std::cout << "Enter 1 to continue." << std::endl;
-			std::cout << "Enter 2 to exit program." << std::endl;
-
-			errorCounter++;
-		} while (((status = getInt(&choice)) != 0) || choice > 2 || choice < 1);
-
-	} while (choice == 1);
 	
-	if (choice == 2) {
-		exit(0);
-	}
+	if (exit = false) {
+		do {
+			menu();
+			errorCounter = 0;
+			do {
+				if (errorCounter > 1) {
+					std::cout << "Invalid selection. Please enter a valid menu selection." << std::endl;
+				}
+				std::cout << "Continue running program?" << std::endl;
+				std::cout << "Enter 1 to continue." << std::endl;
+				std::cout << "Enter 2 to exit program." << std::endl;
 
+				errorCounter++;
+			} while (((status = getInt(&choice)) != 0) || choice > 2 || choice < 1);
+
+		} while (choice == 1);
+	}
 }
 
 /*********************************************************************
@@ -500,7 +501,6 @@ void University::addStudents() {
 ** Additionally, this function is intended to be used within a loop, adding one student at a time only.
 *********************************************************************/
 void University::addInstructors() {
-	int count = 0;
 	int prev;
 	//if array is too small, double the size of the array
 	instrCount++;

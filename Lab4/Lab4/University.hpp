@@ -2,7 +2,9 @@
 ** Program name: Lab4
 ** Author: Mario Franco-Munoz
 ** Date: 10/19/2017
-** Description:
+** Description: Header file for University class. As part of "Oregon State University" sulation, this class
+** represents the university as a whole with instructors and buildings being part of the university.
+** Information about the different buildings, students and instructors is accessed through text files.
 *********************************************************************/
 
 #include <string>
@@ -44,6 +46,7 @@ private:
 	int bldRosterSize;
 	int bldCount;
 
+	bool exit = false;
 
 public:
 	University();
