@@ -22,6 +22,9 @@ public:
 	void setGPA(double);
 	double getGPA();
 
+	Student& operator=(Student *);
+
+
 	virtual ~Student() {
 
 	}

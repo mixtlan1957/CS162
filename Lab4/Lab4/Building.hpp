@@ -22,12 +22,17 @@ public:
 	Building();
 	Building(std::string, int, std::string);
 
+	Building& operator=(Building *);
+
+	//accessors and mutators
 	void setName(std::string);
 	std::string getName();
 	void setSize(int);
 	int getSize();
 	void setAddress(std::string);
 	std::string getAddress();
+
+
 
 
 };

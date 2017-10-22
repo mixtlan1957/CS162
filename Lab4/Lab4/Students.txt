@@ -3,3 +3,4 @@ $#NameGuts$#GPA3.3$#Age30$
 $#NameGriffith$#GPA3.5$#Age31$$#Namedsd$#GPA4$#Age23$
 $#Namelolita$#GPA4$#Age18$
 $#NameBilly Bob$#GPA3.2$#Age23$
+$#Namememcheck7$#GPA3.2$#Age23$

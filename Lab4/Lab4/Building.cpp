@@ -25,6 +25,16 @@ Building::Building(std::string addressIn, int sizeIn, std::string nameIn) {
 	this->size;
 }
 
+//overloated + operator
+Building& Building::operator=(Building *RHS) {
+	if (this != RHS) {
+		this->name = RHS->name;
+		this->address = RHS->address;
+		this->size = RHS->size;
+	}
+	return *this;
+}
+
 /*********************************************************************
 ** Description: sets the name of a building object.
 *********************************************************************/

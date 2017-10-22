@@ -21,6 +21,18 @@ Student::Student(std::string nameIn, int ageIn, double gpaIn) {
 	this->GPA = gpaIn;
 }
 
+//overloaded operator
+Student& Student::operator=(Student *RHS) {
+	if (this != RHS) {
+		this->name = RHS->name;
+		this->age = RHS->age;
+		this->GPA = RHS->GPA;
+	}
+	return *this;
+}
+
+
+
 /*********************************************************************
 ** Description: Student version of the "do_work"function. This function associates hours output from the base class
 ** do work function with homework done by a student.
