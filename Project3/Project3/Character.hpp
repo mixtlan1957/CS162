@@ -39,5 +39,12 @@ public:
 	//mutators
 	void setArmor(int);
 	void setStrength(int);
+
+
+	virtual ~Character() {
+
+	}
+
+
 };
 #endif

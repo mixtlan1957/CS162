@@ -24,5 +24,9 @@ public:
 	virtual std::string getCharacteristics();
 	virtual std::string getSpecial();
 
+	virtual ~Vampire() {
+
+	}
+
 };
 #endif
