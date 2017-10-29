@@ -110,6 +110,7 @@ void Game::gameLoop() {
 		characters.pop_back();
 		delete characters[0];
 		characters.pop_back();
+		round = 0;
 	} while (choice == 1);
 	std::cout << "Thank you for playing Fantasy Combat Game!!!" << std::endl;
 }
@@ -184,9 +185,11 @@ void Game::fight() {
 		
 		//additional specials
 		if (special2 == "Hogwarts" && characters[1]->getStrength() <=0) {
-			std::cout << characters[1]->getType() << " Hogwarts ability has been activated!" << std::endl;
-			characters[1]->setStrength(20);
-
+			if (characters[1]->getGeneralFlag() == true) {
+				std::cout << characters[1]->getType() << " Hogwarts ability has been activated!" << std::endl;
+				characters[1]->setStrength(20);
+				characters[1]->setGeneralFlag(false);
+			}
 		}
 		//display damage stats
 		std::cout << std::left << std::setw(30) << "Damage dealt (actual):" << damage1 << std::endl;
@@ -238,10 +241,13 @@ void Game::fight() {
 
 			//additional specials
 			if (special1 == "Hogwarts" && characters[0]->getStrength() <= 0) {
-				std::cout << characters[0]->getType() << " Hogwarts ability has been activated!" << std::endl;
-				characters[0]->setStrength(20);
-
+				if (characters[0]->getGeneralFlag() == true) {
+					std::cout << characters[1]->getType() << " Hogwarts ability has been activated!" << std::endl;
+					characters[0]->setStrength(20);
+					characters[0]->setGeneralFlag(false);
+				}
 			}
+
 			//display damage stats
 			std::cout << std::left << std::setw(30) << "Damage dealt (actual):" << damage2 << std::endl;
 			std::cout << std::left << std::setw(30) << "Remaining Strength:" << characters[0]->getStrength() << "\n" << std::endl;

@@ -16,7 +16,7 @@ class HarryPotter :public Character {
 private:
 	std::string const CHARACTERISTICS = "Harry Potter is a wizard";
 	std::string const SPECIAL = "Hogwarts";
-	bool secondLife;
+
 public:
 	HarryPotter();
 
@@ -25,12 +25,10 @@ public:
 	virtual std::string getCharacteristics();
 	virtual std::string getSpecial();
 
+
 	virtual ~HarryPotter() {
 
 	}
-
-
-
 };
 #endif 
 

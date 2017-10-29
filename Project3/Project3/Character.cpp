@@ -63,3 +63,19 @@ std::string Character::getType() {
 int Character::getDamage() {
 	return this->attack;
 }
+
+/*********************************************************************
+** Description: setGeneralFlag is used to set the bool variable generalFlag.
+*********************************************************************/
+void Character::setGeneralFlag(bool input) {
+	this->generalFlag = input;
+}
+
+
+/*********************************************************************
+** Description: getGeneralFlag returns the bool General flag when called.
+*********************************************************************/
+bool Character::getGeneralFlag() {
+	return  this->generalFlag;
+}
+

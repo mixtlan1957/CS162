@@ -14,7 +14,8 @@ HarryPotter::HarryPotter() {
 	this->strength = 10;
 	this->armor = 0;
 	this->type = "Harry Potter";
-	secondLife = true;
+	generalFlag = true; //in this case this general bool flag is used to denote 
+						//whether or not HarryPotter still has an extra life.
 }
 
 /*********************************************************************

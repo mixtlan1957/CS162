@@ -20,6 +20,7 @@ protected:
 	int armor;
 	int strength;
 	std::string type;
+	bool generalFlag;
 
 public:
 	//specifically virtual mutators
@@ -34,11 +35,13 @@ public:
 	int getDefense();
 	int getDamage();
 	std::string getType();
+	bool getGeneralFlag();
 	
 
 	//mutators
 	void setArmor(int);
 	void setStrength(int);
+	void setGeneralFlag(bool);
 
 
 	virtual ~Character() {
