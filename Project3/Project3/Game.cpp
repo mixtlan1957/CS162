@@ -104,7 +104,7 @@ void Game::gameLoop() {
 			}
 			std::cout << "1.      Play again?" << std::endl;
 			std::cout << "2.      Exit program." << std::endl;
-		} while (status = getInt(&choice) != 0 || choice > 2 || choice < 1);
+		} while (status = getInt(&choice) != 0 || (choice > 2) || (choice < 1));
 		//cleanup
 		delete characters[1];
 		characters.pop_back();
