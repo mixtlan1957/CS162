@@ -186,7 +186,7 @@ void Game::fight() {
 		//additional specials
 		if (special2 == "Hogwarts" && characters[1]->getStrength() <=0) {
 			if (characters[1]->getGeneralFlag() == true) {
-				std::cout << characters[1]->getType() << " Hogwarts ability has been activated!" << std::endl;
+				std::cout << characters[1]->getType() << " Hogwarts ability has been activated!!!!!!!!!!!!!!!" << std::endl;
 				characters[1]->setStrength(20);
 				characters[1]->setGeneralFlag(false);
 			}
@@ -217,7 +217,7 @@ void Game::fight() {
 			//put specials on the stack
 			//special ability "Glare"
 			if (special2 == "Glare" && damage2 == 12) {
-				std::cout << characters[1]->getType() << " Glare ability has been activated! Max damage dealt!" << std::endl;
+				std::cout << characters[1]->getType() << " Glare ability has been activated! Max damage dealt!!!!!!!!" << std::endl;
 				damage2 = 999;
 			}
 			//Special ability "Charm" 50% chance to reduce incomming atk damage to 0.
@@ -242,7 +242,7 @@ void Game::fight() {
 			//additional specials
 			if (special1 == "Hogwarts" && characters[0]->getStrength() <= 0) {
 				if (characters[0]->getGeneralFlag() == true) {
-					std::cout << characters[1]->getType() << " Hogwarts ability has been activated!" << std::endl;
+					std::cout << characters[1]->getType() << " Hogwarts ability has been activated!!!!!!!!!!!!!!!" << std::endl;
 					characters[0]->setStrength(20);
 					characters[0]->setGeneralFlag(false);
 				}

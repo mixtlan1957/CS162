@@ -23,25 +23,25 @@ protected:
 	bool generalFlag;
 
 public:
-	//specifically virtual mutators
+	//pure virtual mutators
 	virtual void setAttackDmg() = 0;
 	virtual void setDefense() = 0;
 	virtual std::string getCharacteristics() = 0;
 	virtual std::string getSpecial() = 0;
 	
 	//accessors
-	int getArmor();
-	int getStrength();
-	int getDefense();
-	int getDamage();
-	std::string getType();
-	bool getGeneralFlag();
+	virtual int getArmor();
+	virtual int getStrength();
+	virtual int getDefense();
+	virtual int getDamage();
+	virtual std::string getType();
+	virtual bool getGeneralFlag();
 	
 
 	//mutators
-	void setArmor(int);
-	void setStrength(int);
-	void setGeneralFlag(bool);
+	virtual void setArmor(int);
+	virtual void setStrength(int);
+	virtual void setGeneralFlag(bool);
 
 
 	virtual ~Character() {
