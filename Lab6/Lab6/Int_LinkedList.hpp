@@ -28,6 +28,8 @@ private:
 	Node *head;
 	Node *tail;
 
+	bool reload;
+
 public:
 	Int_LinkedList();
 
@@ -44,14 +46,7 @@ public:
 
 
 	//destructor
-	virtual ~Int_LinkedList() {
-		Node *ptr = head;
-		while (ptr != nullptr) {
-			Node *temp = ptr;
-			ptr = ptr->getForwardLink();
-			delete temp;
-		}
-	}
+	virtual ~Int_LinkedList();
 
 
 };

@@ -16,6 +16,7 @@ Int_LinkedList::Int_LinkedList() {
 	this->tail = new Node(0, head, nullptr);
 	this->head->setForwardLink(tail);
 	this->tail->setBackwardLink(head);
+	this->reload = false;
 }
 
 
@@ -320,7 +321,30 @@ void Int_LinkedList::menu() {
 
 			break;
 		case 8:
-			listFromFile();
+			if (reload == false) {
+				listFromFile();
+			}
+			else {
+				std::cout << "Linked list has already been loaded from template text file!" << std::endl;
+				std::cout << "Current list is being deleted and linked list will be recreated!" << std::endl;
+				//clear the current linked list for reload!
+				Node *ptr = head;
+				while (ptr != nullptr) {
+					Node *temp = ptr;
+					ptr = ptr->getForwardLink();
+					delete temp;
+				}
+				
+				//re initialize the head and the tail
+				this->head = new Node(0, nullptr, tail);
+				this->tail = new Node(0, head, nullptr);
+				this->head->setForwardLink(tail);
+				this->tail->setBackwardLink(head);
+				
+				//create new linked list
+				reload = false;
+				listFromFile();
+			}
 			break;
 		case 9:
 			break;
@@ -357,6 +381,18 @@ void Int_LinkedList::listFromFile() {
 			getline(ifs, input);
 			ss.clear();
 		}
+		this->reload = true;
 	}
 	ifs.close();
+}
+
+
+//Destructor for memory dealocation
+Int_LinkedList::~Int_LinkedList() {
+	Node *ptr = head;
+	while (ptr != nullptr) {
+		Node *temp = ptr;
+		ptr = ptr->getForwardLink();
+		delete temp;
+	}
 }
