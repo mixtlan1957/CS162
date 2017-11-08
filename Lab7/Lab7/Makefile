@@ -5,11 +5,11 @@ CXXFLAGS += -Wall
 CXXFLAGS += -pedantic-errors
 CXXFLAGS += -g
 
-OBJS = Int_LinkedList.o Integer_Input_Val.o Main.o Node.o
+OBJS = Integer_Input_Val.o Queue.o Main.o
 
-SRCS = Int_LinkedList.cpp Integer_Input_Val.cpp Main.cpp Node.cpp
+SRCS = Integer_Input_Val.cpp Queue.cpp Main.cpp
 
-HEADERS = Int_LinkedList.hpp Integer_Input_Val.hpp Node.hpp
+HEADERS = Integer_Input_Val.hpp Queue.hpp
 #main stuff/output
 output: ${OBJS} ${HEADERS}
 	${CXX} ${CXXFLAGS} ${OBJS} -o output
