@@ -20,13 +20,11 @@ Queue::Queue() {
 
 //Destructor
 Queue::~Queue() {
-	QueueNode *temp = head;
-	while (temp != head) {
-		head = head->next;
-		temp->next = nullptr;
-		delete temp;
-		temp = head;
+	QueueNode *front = nullptr;
+	while (head->next != nullptr) {
+		removeFront();
 	}
+	delete head;
 }
 
 /*********************************************************************
