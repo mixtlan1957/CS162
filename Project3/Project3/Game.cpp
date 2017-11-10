@@ -178,11 +178,6 @@ void Game::gameLoop() {
 			std::cout << "2.      Exit program." << std::endl;
 			error++;
 		} while (status = getInt(&choice) != 0 || (choice > 2) || (choice < 1));
-		//cleanup
-		//delete characters[1];
-		//characters.pop_back();
-		//delete characters[0];
-		//characters.pop_back();
 
 		team1.clearQueue();
 		team2.clearQueue();
@@ -239,8 +234,11 @@ void Game::tournament() {
 
 			//recovery for winner - recovery can be anywhere between 10 and 50%
 			//of health
-			recoveryMult = randNoGen(1, 5) / 10;
+			recoveryMult = static_cast<double>(randNoGen(1, 5)) / 10.0;
 			temp = static_cast<double>(f2_startHealth) *  recoveryMult;
+			//display recovered hitpoints
+			std::cout << team2.getFront()->getName() << " recovered " << static_cast<int>(temp) << " hitpoints!" << std::endl;
+
 			updatedHealth = fighter2->getStrength() + static_cast<int>(temp);
 			fighter2->setStrength(updatedHealth);
 
@@ -257,8 +255,10 @@ void Game::tournament() {
 
 			//recovery for winner - recovery can be anywhere between 10 and 50%
 			//of max health
-			recoveryMult = randNoGen(1, 5) / 10;
+			recoveryMult = static_cast<double>(randNoGen(1, 5)) / 10.0;
 			temp = static_cast<double>(f1_startHealth) *  recoveryMult;
+			std::cout << team1.getFront()->getName() << " recovered " << static_cast<int>(temp) << " hitpoints!" << std::endl;
+
 			updatedHealth = fighter1->getStrength() + static_cast<int>(temp);
 			fighter1->setStrength(updatedHealth);
 
@@ -400,7 +400,7 @@ void Game::fight() {
 			//additional specials
 			if (special1 == "Hogwarts" && characters[0]->getStrength() <= 0) {
 				if (characters[0]->getGeneralFlag() == true) {
-					std::cout << characters[1]->getType() << " Hogwarts ability has been activated!!!!!!!!!!!!!!!" << std::endl;
+					std::cout << characters[0]->getType() << " Hogwarts ability has been activated!!!!!!!!!!!!!!!" << std::endl;
 					characters[0]->setStrength(20);
 					characters[0]->setGeneralFlag(false);
 				}
