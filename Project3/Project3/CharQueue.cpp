@@ -18,6 +18,7 @@ CharQueue::CharQueue() {
 
 //destructor
 CharQueue::~CharQueue() {
+
 	clearQueue();
 	delete head;
 }
@@ -29,7 +30,7 @@ void CharQueue::clearQueue() {
 	Node *temp = nullptr;
 	temp = head->next;
 	while (temp != nullptr) {
-		//delete temp->c_ptr;
+		delete temp->c_ptr;
 		removeFront();
 		temp = head->next;
 	}
