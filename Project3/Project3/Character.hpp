@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Project3
+** Program name: Project3 & 4
 ** Author: Mario Franco-Munoz
 ** Date: 10/26/2017
 ** Description: Header file for Character base class. The Character base class
@@ -21,6 +21,7 @@ protected:
 	int strength;
 	std::string type;
 	bool generalFlag;
+	std::string name;
 
 public:
 	//pure virtual mutators
@@ -36,18 +37,16 @@ public:
 	virtual int getDamage();
 	virtual std::string getType();
 	virtual bool getGeneralFlag();
+	virtual std::string getName();
 	
 
 	//mutators
 	virtual void setArmor(int);
 	virtual void setStrength(int);
 	virtual void setGeneralFlag(bool);
-
+	virtual void setName(std::string);
 
 	virtual ~Character() {
-
 	}
-
-
 };
 #endif

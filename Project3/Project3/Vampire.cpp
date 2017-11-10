@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Project3
+** Program name: Project3 & 4
 ** Author: Mario Franco-Munoz
 ** Date: 10/26/2017
 ** Description: Source file for Vampire class. The Barbarian class is a subclass of the

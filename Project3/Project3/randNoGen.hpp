@@ -1,12 +1,9 @@
-
 /*********************************************************************
-** Program name: Project 3 (Fantasy Combat Game)
+** Program name: Project 3 & 4
 ** Author: Mario Franco-Munoz
 ** Date: 09/28/2017
-** Description: Header file for randNoGen function.
-** "Function to generate a random number within specified range (minimum value, maximum value).
-** Where the min and max are the first parameters and the third parameter provides an input to generate a different
-** number value when a second random number value is required."
+** Description: Function to generate a random number within specified range (minimum value, maximum value).
+** Stackoverflow post https://stackoverflow.com/questions/19665818/generate-random-numbers-using-c11-random-library
 *********************************************************************/
 
 #include <cfloat>

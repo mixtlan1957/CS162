@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Project3 (Fantasy Combat Game)
+** Program name: Project3 & 4 (Fantasy Combat Game)
 ** Author: Mario Franco-Munoz
 ** Date: 10/26/2017
 ** Description: Source file for Character base class. The Character base class
@@ -79,3 +79,18 @@ bool Character::getGeneralFlag() {
 	return  this->generalFlag;
 }
 
+/*********************************************************************
+** Description: setName is a mutator function for the "name" data member used by characters
+** of the Fantasy Combat Game.
+*********************************************************************/
+void Character::setName(std::string nameIn) {
+	this->name = nameIn;
+}
+
+/*********************************************************************
+** Description: getName is an accessor function for the "name" data member used by characters
+** of the Fantasy Combat Game.
+*********************************************************************/
+std::string Character::getName() {
+	return this->name;
+}

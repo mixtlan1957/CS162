@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Project 3
+** Program name: Project 3 & 4
 ** Author: Mario Franco-Munoz
 ** Date: 09/28/2017
 ** Description: Function to generate a random number within specified range (minimum value, maximum value). 

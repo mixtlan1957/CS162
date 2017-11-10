@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Project 3 (Fantasy Combat Game)
+** Program name: Project 3 & 4 (Fantasy Combat Game)
 ** Author: Mario Franco-Munoz
 ** Date: 10/27/2017
 ** Description: Header file for Game class.
@@ -20,6 +20,7 @@
 #include "BlueMen.hpp"
 #include "Medusa.hpp"
 #include "HarryPotter.hpp"
+#include "CharQueue.hpp"
 
 //function headers
 #include "Integer_Input_Val.hpp"
@@ -28,6 +29,9 @@ class Game {
 private:
 	std::vector<Character *> characters;
 	int round;
+	CharQueue team1;
+	CharQueue team2;
+	CharQueue grave;
 
 public:
 	Game();
@@ -36,9 +40,11 @@ public:
 	void fight();
 	void menu();
 	void gameLoop();
+	void tournament();
+	void displayResults();
 
 	virtual ~Game() {
-		
+
 	}
 };
 

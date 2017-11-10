@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Project 3 (Fantasy Combat Game)
+** Program name: Project 3 & 4 (Fantasy Combat Game)
 ** Author: Mario Franco-Munoz
 ** Date: 10/27/2017
 ** Description: Source file for Game class.
@@ -26,9 +26,9 @@ void Game::introduction() {
 	std::cout << "Phase 1:   Attacks are declared and damage dice rolls and effects are enacted." << std::endl;
 	std::cout << "Phase 2:   Special abilities that affect the outcome of the battle are resolved." << std::endl;
 	std::cout << "Phase 3:   Damage is calculated (where dmg = Dmg Dealt - defense - armor)" << std::endl;
-	std::cout << "Phase 4:   Additional special effects if applicable are resolved." << std::endl;
+	std::cout << "Phase 4:   Additional special effects if applicable are resolved.\n" << std::endl;
+	std::cout << "Battle continues until only one team remains!\n" << std::endl;
 }
-
 
 
 /*********************************************************************
@@ -39,51 +39,119 @@ void Game::menu() {
 	int status;
 	int charSelect = 0;
 	Character *ptr = nullptr;
+	int teamCount;
+	std::string name;
+	int error;
 
-	
-	while (charSelect < 2) {
-		
-		status = 0;
-		//do-while loop to present options to users.
-		do {
-			if (status != 0) {
-				std::cout << "Invalid selection. Please enter a valid menu selection. [1-5]" << std::endl;
+	//prompt user to enter number of characters for each team and validate input
+	error = 0;
+	do {
+		std::cout << "To begin, please enter how many chacters each team will contain. (Min: 1, Max: 50)." << std::endl;
+		if (error != 0) {
+			std::cout << "Invalid input. Please enter a number between 1 and 50" << std::endl;
+		}
+		error++;
+	} while ((status = getInt(&choice) != 0) || choice > 50 || choice < 1);
+
+	teamCount = static_cast<int>(choice);
+
+	for (int i = 0; i < 2; i++) {
+		charSelect = 0;
+		std::cout << "Please enter the characters (and their names) for team " << i + 1 << " : \n" << std::endl;
+		while (charSelect < teamCount) {
+
+			error = 0;
+			//do-while loop to present options to users.
+			do {
+				if (error != 0) {
+					std::cout << "Invalid selection. Please enter a valid menu selection. [1-5]" << std::endl;
+				}
+				std::cout << "Please select your fighters! Choose a number for fighter " << charSelect + 1 << ":" << std::endl;
+				std::cout << "1.    Vampire" << std::endl;
+				std::cout << "2.    Barbarian" << std::endl;
+				std::cout << "3.    Blue Men" << std::endl;
+				std::cout << "4.    Medusa" << std::endl;
+				std::cout << "5.    Harry Potter" << std::endl;
+				error++;
+			} while (((status = getInt(&choice)) != 0) || (choice < 1 || choice > 5));
+
+			//create Vampire if applicable
+			if (static_cast<int>(choice) == 1) {
+				//create character
+				ptr = new Vampire;
+				
+				//prompt user for name
+				std::cout << "Enter the " << ptr->getType() << "'s name:" << std::endl;
+				
+				//store and set name
+				getline(std::cin, name);
+				ptr->setName(name);
+				
+				//add to the appropriate team
+				if (i == 0) {
+					team1.addBack(ptr);
+				}
+				else {
+					team2.addBack(ptr);
+				}
 			}
-			std::cout << "Please select your fighters! Choose a number for fighter " << charSelect + 1 << ":" << std::endl;
-			std::cout << "1.    Vampire" << std::endl;
-			std::cout << "2.    Barbarian" << std::endl;
-			std::cout << "3.    Blue Men" << std::endl;
-			std::cout << "4.    Medusa" << std::endl;
-			std::cout << "5.    Harry Potter" << std::endl;
-		} while (((status = getInt(&choice)) != 0) || (choice < 1 || choice > 5));
-		
-		//create Vampire if applicable
-		if (static_cast<int>(choice) == 1) {
-			ptr = new Vampire;
-			characters.push_back(ptr);
+			//create Barbarian if applicable
+			else if (static_cast<int>(choice) == 2) {
+				ptr = new Barbarian;
+				std::cout << "Enter the " << ptr->getType() << "'s name:" << std::endl;
+				getline(std::cin, name);
+				ptr->setName(name);
+				if (i == 0) {
+					team1.addBack(ptr);
+				}
+				else {
+					team2.addBack(ptr);
+				}
+
+			}
+			//create BlueMen if applicable
+			else if (static_cast<int>(choice) == 3) {
+				ptr = new BlueMen;
+				std::cout << "Enter the " << ptr->getType() << "'s name:" << std::endl;
+				getline(std::cin, name);
+				ptr->setName(name);
+				if (i == 0) {
+					team1.addBack(ptr);
+				}
+				else {
+					team2.addBack(ptr);
+				}
+			}
+			//create Medusa if applicable
+			else if (static_cast<int>(choice) == 4) {
+				ptr = new Medusa;
+				std::cout << "Enter the " << ptr->getType() << "'s name:" << std::endl;
+				getline(std::cin, name);
+				ptr->setName(name);
+				if (i == 0) {
+					team1.addBack(ptr);
+				}
+				else {
+					team2.addBack(ptr);
+				}
+			}
+			else {
+				ptr = new HarryPotter;
+				std::cout << "Enter the " << ptr->getType() << "'s name:" << std::endl;
+				getline(std::cin, name);
+				ptr->setName(name);
+				if (i == 0) {
+					team1.addBack(ptr);
+				}
+				else {
+					team2.addBack(ptr);
+				}
+			}
+			charSelect++;
 		}
-		//create Barbarian if applicable
-		else if (static_cast<int>(choice) == 2) {
-			ptr = new Barbarian;
-			characters.push_back(ptr);
-		}
-		//create BlueMen if applicable
-		else if (static_cast<int>(choice) == 3) {
-			ptr = new BlueMen;
-			characters.push_back(ptr);
-		}
-		//create Medusa if applicable
-		else if (static_cast<int>(choice) == 4) {
-			ptr = new Medusa;
-			characters.push_back(ptr);
-		}
-		else {
-			ptr = new HarryPotter;
-			characters.push_back(ptr);
-		}
-		charSelect++;
 	}
 }
+
 
 /*********************************************************************
 ** Description: gameLoop function prompts to user to continue running Fantasy Combat battles
@@ -92,28 +160,117 @@ void Game::menu() {
 void Game::gameLoop() {
 	float choice;
 	int status = 0;
-
+	int error;
 	introduction();
 	
 	do {
+		//main order of events: menu, tournament until one team is exausted of all players, display results
 		menu();
-		fight();
+		tournament();
+		displayResults();
+
+		error = 0;
 		do {
-			if (status != 0) {
+			if (error != 0) {
 				std::cout << "Invalid menu selection. Please select 1 to battle again or 2 to exit program." << std::endl;
 			}
 			std::cout << "1.      Play again?" << std::endl;
 			std::cout << "2.      Exit program." << std::endl;
+			error++;
 		} while (status = getInt(&choice) != 0 || (choice > 2) || (choice < 1));
 		//cleanup
-		delete characters[1];
-		characters.pop_back();
-		delete characters[0];
-		characters.pop_back();
+		//delete characters[1];
+		//characters.pop_back();
+		//delete characters[0];
+		//characters.pop_back();
+
+		team1.clearQueue();
+		team2.clearQueue();
+		grave.clearQueue();
+
 		round = 0;
 	} while (choice == 1);
 	std::cout << "Thank you for playing Fantasy Combat Game!!!" << std::endl;
 }
+
+/*********************************************************************
+** Description: tournament (an update to the Fantasy Combat Game) is where the two teams
+** do battle. Characters that are defeated are sent to the "grave" CharQueue and the winner
+** recovers for a random amount of health.
+*********************************************************************/
+void Game::tournament() {
+	Character *fighter1;
+	Character *fighter2;
+	int f1_startHealth;
+	int f2_startHealth;
+	double recoveryMult;
+	double temp;
+	int updatedHealth;
+
+	//Display teams
+	std::cout << "******************************************************************" << std::endl;
+	std::cout << "Teams (in fight order) are:" << std::endl;
+	std::cout << "Team1: ";
+	team1.printQueue();
+	std::cout << "Team2: ";
+	team2.printQueue();
+	std::cout << "******************************************************************" << std::endl;
+
+	while (team1.isEmpty() == false && team2.isEmpty() == false) {
+		//copy the first fighter from each respective team into the "fight" vector
+		fighter1 = team1.getFront();
+		fighter2 = team2.getFront();
+
+		//save the starting health/strength of both fighters (for later recovery of winner)
+		f1_startHealth = fighter1->getStrength();
+		f2_startHealth = fighter2->getStrength();
+
+		//call fight function after vector has been loaded
+		characters.push_back(fighter1);
+		characters.push_back(fighter2);
+
+		fight();
+
+		//find the victor and the loser and send to graveyard
+		if (fighter1->getStrength() <= 0) {
+			grave.addBack(fighter1);
+			characters.pop_back();
+			team1.removeFront();
+
+			//recovery for winner - recovery can be anywhere between 10 and 50%
+			//of health
+			recoveryMult = randNoGen(1, 5) / 10;
+			temp = static_cast<double>(f2_startHealth) *  recoveryMult;
+			updatedHealth = fighter2->getStrength() + static_cast<int>(temp);
+			fighter2->setStrength(updatedHealth);
+
+			//call sendFrontToBack
+			team2.sendFrontToBack();
+			//finish clearing the characters vector.
+			characters.pop_back();
+
+		}
+		else {
+			grave.addBack(fighter2);
+			characters.pop_back();
+			team2.removeFront();
+
+			//recovery for winner - recovery can be anywhere between 10 and 50%
+			//of max health
+			recoveryMult = randNoGen(1, 5) / 10;
+			temp = static_cast<double>(f1_startHealth) *  recoveryMult;
+			updatedHealth = fighter1->getStrength() + static_cast<int>(temp);
+			fighter1->setStrength(updatedHealth);
+
+			//call sendFrontToBack
+			team1.sendFrontToBack();
+			//finish clearing the characters vector
+			characters.pop_back();
+		}
+
+	}
+}
+
 
 /*********************************************************************
 ** Description: fight function operates the fighting in Fantasy Combat battles by phases. 
@@ -199,7 +356,8 @@ void Game::fight() {
 		if (characters[1]->getStrength() <= 0) {
 			characters[1]->setStrength(0);
 			std::cout << "K.O.!!!!!!!" << std::endl;
-			std::cout << characters[0]->getType() << "(1) has won!!!" << std::endl;
+			std::cout << characters[0]->getName() << " a ";
+			std::cout << characters[0]->getType() << "(from team 1) has won!!!" << std::endl;
 			std::cout << "\n" << std::endl;
 		}
 
@@ -254,7 +412,8 @@ void Game::fight() {
 			
 			if (characters[0]->getStrength() <= 0) {
 				std::cout << "K.O.!!!!!!!" << std::endl;
-				std::cout << characters[1]->getType() << "(2) has won!!!" << std::endl;
+				std::cout << characters[1]->getName() << " a ";
+				std::cout << characters[1]->getType() << "(from team 2) has won!!!" << std::endl;
 				std::cout << "\n" << std::endl;
 			}
 			round++;
@@ -263,3 +422,40 @@ void Game::fight() {
 	
 }
 
+/*********************************************************************
+** Description: displayResults displays the members of the winning team and provides
+** the user the option of viewing characters that lost matchups.
+*********************************************************************/
+void Game::displayResults() {
+	int status;
+	float choice;
+	int error;
+
+	if (team1.isEmpty() == true) {
+		std::cout << "TEAM 2 HAS EMERGED VICTORIOUS!!!!!!" << std::endl;
+		std::cout << "Team 2 members still standing:" << std::endl;
+		team2.printQueue();
+	}
+	else {
+		std::cout << "TEAM 1 HAS EMERGED VICTORIOUS!!!!!!" << std::endl;
+		std::cout << "Team 1 members still standing:" << std::endl;
+		team1.printQueue();
+	}
+
+	std::cout << "Display list of fallen warriors?" << std::endl;
+	
+	error = 0;
+	do {
+		std::cout << "Enter \"1\" to display contents of graveyard." << std::endl;
+		std::cout << "Enter \"2\" to continue without displaying graveyard." << std::endl;
+		if (error != 0) {
+			std::cout << "Invalid input. Please enter a 1 or 2." << std::endl;
+		}
+		error++;
+	} while ((status = getInt(&choice) != 0) || choice < 1  || choice > 2);
+
+	if (choice == 1) {
+		grave.printQueue();
+	}
+
+}

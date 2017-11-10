@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Project3
+** Program name: Project3 & 4
 ** Author: Mario Franco-Munoz
 ** Date: 10/26/2017
 ** Description: Main implementation file for Fantasy Combat game. A game where

@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Project3
+** Program name: Project3 & 4
 ** Author: Mario Franco-Munoz
 ** Date: 10/26/2017
 ** Description: Source file for BlueMen class. The BlueMen class is a subclass of the
