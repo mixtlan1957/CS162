@@ -403,8 +403,13 @@ std::string SearchSort::getValidFileName() {
 		getline(std::cin, fileName);
 
 		strLength = fileName.length();
-		//first check to make sure that file ends with ".txt"
-		inputVal = fileName.substr(strLength - 4, strLength - 1);
+		if (strLength > 4) {
+			//first check to make sure that file ends with ".txt"
+			inputVal = fileName.substr(strLength - 4, strLength - 1);
+		}
+		else {
+			inputVal = "";
+		}
 		if (inputVal != ".txt") {
 			std::cout << "Invalid file name! ";
 			std::cout << "Please ensure that the file name ends with \".txt\" (in lowercase)!" << std::endl;
@@ -427,6 +432,9 @@ std::string SearchSort::getValidFileName() {
 			if (errorFlag == true) {
 				std::cout << "Invalid character entered! Please do not include \\/*?\"<>| in the file name!" << std::endl;
 				std::cout << "please re-enter flie name." << std::endl;
+			}
+			else {
+				errorFlag = false;
 			}
 		}
 
