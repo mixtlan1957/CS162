@@ -12,7 +12,10 @@
 
 //default constructor
 SearchSort::SearchSort() {
-	arrCap_early, arrCap_middle, arrCap_end, arrCap_original = 0;
+	arrCap_early = 0;
+	arrCap_middle = 0;
+	arrCap_end = 0;
+	arrCap_original = 0;
 	early = nullptr;
 	middle = nullptr;
 	end = nullptr;
@@ -391,9 +394,9 @@ std::string SearchSort::getValidFileName() {
 	bool errorFlag = true;		//error flag
 	std::string fileName;		//attempted file name
 	std::string inputVal;		//string variable for validating inclusion of ".txt"
-	int found;					//for running str.find() string memeber function
+	unsigned found;					//for running str.find() string memeber function
 	std::string troll = "\\/*?\"<>|";		//invalid characters
-	int count;
+	unsigned count;
 
 
 	do {
