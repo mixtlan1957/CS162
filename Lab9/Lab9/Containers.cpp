@@ -78,7 +78,6 @@ void Containers::bufferSim() {
 	double length = 0;			//for average length calculation
 	double avg_length = 0;		//for average length calculation
 	double prev_length = 0;		//for average length calculation, initialized at 0 - base case
-	int len_count = 0;			//for length calculation
 	int row_count = 0;			//row counter for output formatting
 	int count = 0;				//general counter - to keep track of current round
 	
@@ -126,7 +125,6 @@ void Containers::bufferSim() {
 	do {
 
 		//reset length and row count
-		len_count = 0;
 		row_count = 0;
 
 		//increment current round counter
