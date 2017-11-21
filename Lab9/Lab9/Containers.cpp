@@ -43,7 +43,7 @@ void Containers::menu() {
 			std::cout << "Enter \"2\" to start the Palindrome generator." << std::endl;
 			std::cout << "Enter \"3\" to exit program." << std::endl;
 			
-		} while (status = getInt(&choice) != 0 || choice < 1 || choice > 3);
+		} while ((status = getInt(&choice) != 0) || choice < 1 || choice > 3);
 
 		//buffersim
 		if (static_cast<int>(choice) == 1) {
@@ -93,7 +93,7 @@ void Containers::bufferSim() {
 			std::cout << "Invalid input." << std::endl;
 		}
 		error++;
-	} while (status = getInt(&choice) != 0 || choice < 1 || choice > 100 );
+	} while ((status = getInt(&choice) != 0) || choice < 1 || choice > 100 );
 	rounds_buffer = static_cast<int>(choice);
 
 	//prompt user to enter the % chance of adding a randomly generated number at the end of the buffer
@@ -105,7 +105,7 @@ void Containers::bufferSim() {
 		error++;
 		std::cout << "Enter the % chance of a random number being added to the queue (end of buffer).\n ";
 		std::cout << "(Enter selection as integer between 0 and 100)." << std::endl;
-	} while (status = getInt(&choice) != 0 || choice < 0 || choice > 100);
+	} while ((status = getInt(&choice) != 0) || choice < 0 || choice > 100);
 	addChance = static_cast<int>(choice);
 
 	// prompt user to enter the % chance of removing a randomly generated number from the front end of the buffer
@@ -117,7 +117,7 @@ void Containers::bufferSim() {
 		error++;
 		std::cout << "Enter the % chance of a random number being removed from the queue (start of buffer).\n ";
 		std::cout << "(Enter selection as integer between 0 and 100)." << std::endl;
-	} while (status = getInt(&choice) != 0 || choice < 0 || choice > 100);
+	} while ((status = getInt(&choice) != 0) || choice < 0 || choice > 100);
 	remChance = static_cast<int>(choice);
 
 
@@ -197,6 +197,11 @@ void Containers::bufferSim() {
 
 	} while (rounds_buffer > 0);
 
+	//empty the buffer in case the sim is run again.
+	while (buffer.empty() != true) {
+		buffer.pop();
+	}
+
 }
 
 /*********************************************************************
@@ -222,7 +227,7 @@ std::string Containers::palindrome() {
 
 
 	//load string into stack
-	for (int i = 0; i < inputString.length(); i++) {
+	for (unsigned i = 0; i < inputString.length(); i++) {
 		pali.push(inputString.at(i));
 	}
 
