@@ -62,6 +62,7 @@ GameBoard::GameBoard() {
 
 //destructor
 GameBoard::~GameBoard() {
+	delete room0;
 	delete room1;
 	delete room2;
 	delete room3;
@@ -216,7 +217,7 @@ void GameBoard::gameLoop() {
 		
 		//display current stats
 		std::cout << "Current Hit Points (Health):      " << player->getPlayerHealth() << std::endl;
-		if (player->getPlayerHealth() > 0) {
+		if (player->getPlayerHealth() > 0 && player->getEndGameStatus() == false) {
 			std::cout << "Current level of Battle Mage:     " << player->getLevel() << std::endl;
 			std::cout << "Base Damage:                      " << player->getLevel() << std::endl;;
 			std::cout << "Exp needed for next level         " << (player->getExpCap()) - (player->getExpPoints()) << std::endl;
