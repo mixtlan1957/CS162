@@ -45,5 +45,12 @@ public:
 
 	//each room will have its own event which depends on the Space type.
 	virtual void specialEvent(BattleMage*) = 0;
+
+
+	virtual ~Space() {
+
+	}
+
+
 };
 #endif

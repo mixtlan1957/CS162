@@ -23,7 +23,9 @@ public:
 
 	void specialEvent(BattleMage *);
 
+	virtual ~FinalBossRoom() {
 
+	}
 
 };
 #endif

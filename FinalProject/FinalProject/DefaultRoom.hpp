@@ -27,6 +27,10 @@ public:
 
 	void specialEvent(BattleMage *);
 
+	virtual ~DefaultRoom() {
+
+	}
+
 
 };
 #endif

@@ -75,7 +75,9 @@ public:
 	std::string retSingleSpell(int);
 	int spellCount();
 
+	virtual ~BattleMage() {
 
+	}
 	
 };
 #endif

@@ -82,7 +82,7 @@ void GameBoard::introduction() {
 	std::cout << "Welcome to the Escape the Dungeon game." << std::endl;
 	std::cout << "The goal of this game is to navigate your Battle Mage (player controlled character)" << std::endl;
 	std::cout << "out of the dungeon." << std::endl;
-	std::cout << "To do this you must first defeat the two mini bosses (denoted by the * on the dungeon map)" << std::endl;
+	std::cout << "To do this you must first defeat the two mini bosses (denoted by the ^ and * on the dungeon map)" << std::endl;
 	std::cout << "to gain tomes which will teach your Battle Mage new spells key to defeating the final boss ('!' on map).\n" << std::endl;
 	std::cout << "Note: this game is on a movement limit!" << std::endl;
 	std::cout << "After 15 steps the game will automatically end with a loss! \n" << std::endl;
@@ -91,6 +91,9 @@ void GameBoard::introduction() {
 	std::cout << "Your character (escaped Battle Mage) is denoted by a the character 'o' on the map." << std::endl;
 	//std::cout << "Walls are represented by the '#' character." << std::endl;
 	std::cout << "You will be prompted to enter: A (move left) W (move up) S (move down) D (move right).\n" << std::endl;
+	std::cout << "Hints:" << std::endl;
+	std::cout << "Defeat the Fire Lord First denoted by the '^' character, then defeat the Ice Boss denoted  " << std::endl;
+	std::cout << "by the '*' character before facing the final boss denoted by the '!' character." << std::endl;
 }
 
 /*********************************************************************
@@ -175,7 +178,14 @@ void GameBoard::useItems() {
 ** player dies or runs out of steps "lantern oil".
 *********************************************************************/
 void GameBoard::gameLoop() {
+	int status;
+	bool playAgain;
+	char selection;
+	int error;
+	
 	do {
+		playAgain = false;		//reinitialize player selection bool
+
 		//display map
 		std::cout << "\n\n\n\n" << std::endl;
 		printBoard(currentRoom->getID());
@@ -203,15 +213,35 @@ void GameBoard::gameLoop() {
 			useItems();
 		}
 		
-
+		
 		//display current stats
 		std::cout << "Current Hit Points (Health):      " << player->getPlayerHealth() << std::endl;
-		std::cout << "Current level of Battle Mage:     " << player->getLevel() << std::endl;
-		std::cout << "Base Damage:                      " << player->getLevel() << std::endl;;
-		std::cout << "Exp needed for next level         " << (player->getExpCap()) - (player->getExpPoints()) << std::endl;
+		if (player->getPlayerHealth() > 0) {
+			std::cout << "Current level of Battle Mage:     " << player->getLevel() << std::endl;
+			std::cout << "Base Damage:                      " << player->getLevel() << std::endl;;
+			std::cout << "Exp needed for next level         " << (player->getExpCap()) - (player->getExpPoints()) << std::endl;
 
 
-	} while (player->getEndGameStatus() == false && (player->getPlayerHealth()) > 0 && gameTimer > 0);
+			//prompt the user to continue playing or quit
+			error = 0;
+			do {
+				if (error > 0) {
+					std::cout << "Invalid input." << std::endl;
+				}
+				std::cout << "Continue Playing? (y/n) " << std::endl;
+				error++;
+				
+			} while ((status = getValidChar(&selection)) != 0 || !(selection == 'y' || selection == 'n'));
+
+			if (selection == 'y') {
+				playAgain = true;
+			}
+			else {
+				playAgain = false;
+			}
+		}
+
+	} while (player->getEndGameStatus() == false && (player->getPlayerHealth()) > 0 && gameTimer > 0 && playAgain == true);
 	//loss by running out of steps
 	if (gameTimer == 0) {
 		std::cout << "Uh oh... You ran out of steps!" << std::endl;
@@ -225,11 +255,14 @@ void GameBoard::gameLoop() {
 		std::cout << "GAME OVER." << std::endl;
 	}
 	//win
-	else {
+	else if (player->getEndGameStatus() == true) {
 		std::cout << "********************************************************" << std::endl;
 		std::cout << "********************************************************" << std::endl;
 		std::cout << "********************************************************" << std::endl;
 		std::cout << "Congratulations! You made it out of the dungeon alive!" << std::endl;
+	}
+	else {
+		std::cout << "Thank you for playing. Program will now exit." << std::endl;
 	}
 }
 
@@ -263,7 +296,7 @@ void GameBoard::printBoard(int roomIn) {
 	else if (roomIn == 4) {
 		grid[3][1] = 'o';
 		generateGrid();
-		grid[3][1] = '*';
+		grid[3][1] = '^';
 	}
 	else if (roomIn == 5) {
 		grid[2][3] = 'o';

@@ -28,5 +28,9 @@ public:
 
 	void specialEvent(BattleMage *);
 
+	virtual ~MobsRoom() {
+
+	}
+
 };
 #endif

@@ -26,6 +26,10 @@ public:
 
 	void specialEvent(BattleMage *);
 
+	virtual ~FireBossRoom() {
+
+	}
+
 };
 #endif
 
